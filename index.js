@@ -14,3 +14,50 @@ li.innerHTML = `
 <span class="${task.done ? "completed":""}">
 ${task.subject} - ${task.hours}h
 </span>
+<div>
+<button onclick="complete(${index})">✔</button>
+<button onclick="removeTask(${index})">❌</button>
+</div>
+`;
+
+taskList.appendChild(li);
+
+});
+
+updateProgress();
+updateChart();
+
+localStorage.setItem("tasks",JSON.stringify(tasks));
+
+}
+
+function addTask(){
+
+let subject = document.getElementById("subject").value;
+let hours = document.getElementById("hours").value;
+
+if(subject=="" || hours==""){
+alert("Enter data");
+return;
+}
+
+tasks.push({
+subject:subject,
+hours:hours,
+done:false
+});
+
+document.getElementById("subject").value="";
+document.getElementById("hours").value="";
+
+render();
+
+}
+
+function complete(index){
+
+tasks[index].done=!tasks[index].done;
+
+render();
+
+}
