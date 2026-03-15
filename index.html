@@ -8,20 +8,29 @@
   </head>
 
   <body>
-
     <div class="container">
+      <h1>🧠 Smart AI Study Planner</h1>
 
-    <h1>🧠 Smart AI Study Planner</h1>
+      <button id="darkToggle">🌙 Dark Mode</button>
 
-    <button id="darkToggle">🌙 Dark Mode</button>
+      <div class="inputBox">
+        <input type="text" id="subject" placeholder="Subject" />
+        <input type="number" id="hours" placeholder="Study Hours" />
 
-    <div class="inputBox">
+        <button onclick="addTask()">Add Task</button>
+      </div>
 
-    <input type="text" id="subject" placeholder="Subject">
-    <input type="number" id="hours" placeholder="Study Hours">
+      <h3>📚 Study Tasks</h3>
 
-    <button onclick="addTask()">Add Task</button>
+      <ul id="taskList"></ul>
 
+      <h3>📊 Study Progress</h3>
+
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
+
+      <canvas id="studyChart"></canvas>
     </div>
 
     <script src="script.js"></script>
