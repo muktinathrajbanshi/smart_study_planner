@@ -61,3 +61,60 @@ tasks[index].done=!tasks[index].done;
 render();
 
 }
+
+function removeTask(index){
+
+tasks.splice(index,1);
+
+render();
+
+}
+
+function updateProgress(){
+
+let done = tasks.filter(t=>t.done).length;
+
+let percent = tasks.length==0 ? 0 : (done/tasks.length)*100;
+
+document.getElementById("progressBar").style.width=percent+"%";
+
+}
+
+function updateChart(){
+
+let labels = tasks.map(t=>t.subject);
+
+let data = tasks.map(t=>t.hours);
+
+const ctx = document.getElementById("studyChart");
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+labels:labels,
+
+datasets:[{
+
+label:"Study Hours",
+
+data:data,
+
+backgroundColor:"#4CAF50"
+
+}]
+
+}
+
+});
+
+}
+
+document.getElementById("darkToggle").onclick=function(){
+
+document.body.classList.toggle("dark");
+
+}
+
+render();
