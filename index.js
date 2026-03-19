@@ -57,6 +57,25 @@ function render() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+function updateSuggestion() {
+  let total = tasks.length;
+  let completed = tasks.filter(t => t.done).length;
+
+  let message = "";
+
+  if (total === 0) {
+    message = "Start by adding your first task 📚";
+  } else if (completed === total) {
+    message = "🎉 Great job! All tasks completed!";
+  } else if (completed / total < 0.5) {
+    message = "Focus more! Try completing at least half your tasks today.";
+  } else {
+    message = "Good progress! Keep going 💪";
+  }
+
+  document.getElementById("suggestion").innerText = message;
+}
+
 function addTask() {
   let subject = document.getElementById("subject").value;
   let hours = document.getElementById("hours").value;
