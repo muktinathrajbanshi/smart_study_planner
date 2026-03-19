@@ -1,7 +1,7 @@
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const taskList = document.getElementById("taskList");
-let chart; // important for fixing chart issue
+let chart;
 
 function render() {
   taskList.innerHTML = "";
@@ -39,7 +39,7 @@ function addTask() {
 
   tasks.push({
     subject: subject,
-    hours: Number(hours), // FIXED
+    hours: Number(hours),
     done: false
   });
 
@@ -60,8 +60,13 @@ function removeTask(index) {
 }
 
 function updateProgress() {
-  let done = tasks.filter(t => t.done).length;
-  let percent = tasks.length === 0 ? 0 : (done / tasks.length) * 100;
+  let totalHours = tasks.reduce((sum, t) => sum + t.hours, 0);
+  let completedHours = tasks
+    .filter(t => t.done)
+    .reduce((sum, t) => sum + t.hours, 0);
+
+  let percent =
+    totalHours === 0 ? 0 : (completedHours / totalHours) * 100;
 
   document.getElementById("progressBar").style.width = percent + "%";
 }
@@ -70,10 +75,10 @@ function updateChart() {
   let labels = tasks.map(t => t.subject);
   let data = tasks.map(t => t.hours);
 
-  const ctx = document.getElementById("studyChart");
+  const ctx = document.getElementById("studyChart").getContext("2d");
 
   if (chart) {
-    chart.destroy(); // FIXED
+    chart.destroy();
   }
 
   chart = new Chart(ctx, {
@@ -84,7 +89,7 @@ function updateChart() {
         {
           label: "Study Hours",
           data: data,
-          backgroundColor: "#4CAF50"
+          backgroundColor: "#4caf50"
         }
       ]
     }

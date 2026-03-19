@@ -4,6 +4,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px;
+  transition: 0.3s;
 }
 
 .container {
@@ -28,6 +29,7 @@ input {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  flex: 1;
 }
 
 button {
@@ -53,6 +55,15 @@ li {
   border-radius: 8px;
 }
 
+.timer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer h2 {
+  font-size: 40px;
+}
+
 .completed {
   text-decoration: line-through;
   color: gray;
@@ -73,6 +84,7 @@ li {
   transition: width 0.5s ease;
 }
 
+/* DARK MODE */
 .dark {
   background: #1e1e1e;
   color: white;
@@ -80,4 +92,18 @@ li {
 
 .dark .container {
   background: #2c2c2c;
+}
+
+.dark li {
+  background: #3a3a3a;
+}
+
+.dark input {
+  background: #444;
+  color: white;
+  border: 1px solid #666;
+}
+
+.dark button {
+  background: #28a745;
 }
