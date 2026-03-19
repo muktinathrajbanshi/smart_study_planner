@@ -1,7 +1,36 @@
+let timer;
+let timeLeft = 1500; // 25 minutes
+
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const taskList = document.getElementById("taskList");
 let chart;
+
+function startTimer() {
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      alert("Time's up! Take a break ☕");
+      return;
+    }
+
+    timeLeft--;
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    document.getElementById("time").innerText =
+      `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  timeLeft = 1500;
+  document.getElementById("time").innerText = "25:00";
+}
 
 function render() {
   taskList.innerHTML = "";
