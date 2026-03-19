@@ -53,6 +53,7 @@ function render() {
 
   updateProgress();
   updateChart();
+  updateSuggestion();
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
