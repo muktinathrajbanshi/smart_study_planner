@@ -145,14 +145,16 @@ function updateChart() {
   });
 }
 
-document.getElementById("darkToggle").onclick = function () {
-  document.body.classList.toggle("dark");
+  const toggle = document.getElementById("darkToggle");
 
-   if (document.body.classList.contains("dark")) {
-    this.textContent = "☀️ Light Mode";
-  } else {
-    this.textContent = "🌙 Dark Mode";
-  }
-};
+    toggle.onclick = function () {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        toggle.innerText = "☀️ Light Mode";
+      } else {
+        toggle.innerText = "🌙 Dark Mode";
+      }
+  };
 
 render();
