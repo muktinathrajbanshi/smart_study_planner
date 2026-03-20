@@ -120,6 +120,7 @@ function updateProgress() {
   document.getElementById("progressBar").style.width = percent + "%";
 }
 
+
 function updateChart() {
   let labels = tasks.map(t => t.subject);
   let data = tasks.map(t => t.hours);
