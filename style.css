@@ -1,22 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 body {
-  font-family: Arial;
-  background: #f5f6fa;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 40px;
-  transition: 0.3s;
+  align-items: center;
+  padding: 30px;
 }
 
 .container {
-  width: 500px;
-  background: white;
+  width: 100%;
+  max-width: 520px;
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  color: #fff;
+
+  transition: 0.3s ease;
 }
 
 h1 {
   text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .inputBox {
@@ -26,33 +46,59 @@ h1 {
 }
 
 input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #eee;
 }
 
 button {
-  padding: 10px;
-  background: #4caf50;
-  color: white;
+  padding: 10px 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
   cursor: pointer;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 ul {
   list-style: none;
-  padding: 0;
 }
 
 li {
-  background: #f1f1f1;
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
   margin-bottom: 10px;
+  padding: 12px;
+
+  border-radius: 12px;
+
   display: flex;
   justify-content: space-between;
-  border-radius: 8px;
+  align-items: center;
+
+  transition: 0.3s;
+}
+
+li:hover {
+  transform: scale(1.02);
 }
 
 .timer {
@@ -61,37 +107,44 @@ li {
 }
 
 .timer h2 {
-  font-size: 40px;
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
 .completed {
   text-decoration: line-through;
-  color: gray;
+  opacity: 0.6;
 }
 
 .progress {
-  background: #ddd;
-  height: 10px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  height: 12px;
+  border-radius: 20px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
 #progressBar {
-  height: 10px;
-  background: #4caf50;
+  height: 100%;
   width: 0%;
-  border-radius: 10px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   transition: width 0.5s ease;
 }
 
 /* DARK MODE */
+
+#darkToggle {
+  width: 100%;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
 .dark {
-  background: #1e1e1e;
-  color: white;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 .dark .container {
-  background: #2c2c2c;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .dark li {
@@ -106,4 +159,17 @@ li {
 
 .dark button {
   background: #28a745;
+}
+
+#suggestion {
+  margin: 10px 0 20px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.container,
+input,
+button,
+li {
+  transition: all 0.3s ease;
 }
